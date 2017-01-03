@@ -1,0 +1,4 @@
+#!/bin/bash
+#mawk '$5 ~ "^/$" {gsub ("/","",$4);print $4}' /proc/self/mountinfo
+[ -x /bin/cat ] || exit 1
+/bin/cat /proc/cmdline |sed 's/^.*=subvol=\([^ ]*\) .*$/\1/'
