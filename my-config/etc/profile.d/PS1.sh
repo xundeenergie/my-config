@@ -1,5 +1,7 @@
 # /etc/profile.d/PS1.sh: executed by Bourne-compatible login shells.
 
+SYSSUBVOL="$(/usr/bin/grub-mkrelpath /)"
+
 # Reset
 Color_Off='\e[0m'       # Text Reset
 
@@ -85,20 +87,24 @@ On_IWhite='\e[0;107m'   # White
 
 
 case "$TERM" in
-xterm*|rxvt*)
+xterm*|rxvt*|screen*)
+	case "$TERM" in
+		screen*) SCREEN="SCREEN ";;
+		*) SCREEN="";;
+	esac
     if [ "`id -u`" -eq 0 ]; then
-       PS1="\[$Red\]\u@\h[$(/usr/local/bin/syssubvol)] \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Red\]\w: \[\e[m\]\[$BLRed\]# \[\e[m\]\[$Red\]"
+       PS1="\[$Red\]$SCREEN\u@\h[$SYSSUBVOL] \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Red\]\w: \[\e[m\]\[$BLRed\]# \[\e[m\]\[$Red\]"
     else
-       PS1="\[$Blue\]\u@\h[$(/usr/local/bin/syssubvol)] \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Blue\]\w: \[\e[m\]\[$BLBlue\]\$ \[\e[m\]\[$Blue\]"
+       PS1="\[$Blue\]$SCREEN\u@\h[$SYSSUBVOL] \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Blue\]\w: \[\e[m\]\[$BLBlue\]\$ \[\e[m\]\[$Blue\]"
     fi
     RETVAL0="\342\234\223"
-    RETVALN0="\342\234\227"
+    RETVALN0="\342\234\227 "
     ;;
 *)
     if [ "`id -u`" -eq 0 ]; then
-       PS1="\[$BRed\]\u@\h[$(/usr/local/bin/syssubvol)] \[\e[m\]\[$Purple\](\A)\[\e[m\]\[$BRed\]\w: # "
+       PS1="\[$BRed\]\u@\h[$SYSSUBVOL] \[\e[m\]\[$Purple\](\A)\[\e[m\]\[$BRed\]\w: # "
     else
-       PS1="\[$BBlue\]\u@\h[$(/usr/local/bin/syssubvol)] \[\e[m\]\[$Purple\](\A)\[\e[m\]\[$BBlue\]\w: \$ "
+       PS1="\[$BBlue\]\u@\h[$SYSSUBVOL] \[\e[m\]\[$Purple\](\A)\[\e[m\]\[$BBlue\]\w: \$ "
     fi
     RETVAL0=":)"
     RETVALN0=":("
