@@ -1,5 +1,5 @@
 Package: my-config
-Version: 0.11.6
+Version: 0.11.7
 Section: misc
 Priority: extra
 Architecture: all
@@ -7,5 +7,6 @@ Maintainer: Jakobus Schürz <xundeenergie@gmail.com>
 Homepage: http://github.com/xundeenergie/my-config
 Provides: my-config
 Depends:
+Recommends: my-services
 Description: My configurations 
  Special configurations for this and that around in linux, for jakob schürz
