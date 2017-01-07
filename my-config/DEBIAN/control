@@ -6,6 +6,6 @@ Architecture: all
 Maintainer: Jakobus Schürz <xundeenergie@gmail.com>
 Homepage: http://github.com/xundeenergie/my-config
 Provides: my-config
-Depends: ipset, youtube-dl, systemd, curl, wget
+Depends:
 Description: My configurations 
  Special configurations for this and that around in linux, for jakob schürz
