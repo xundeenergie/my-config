@@ -50,3 +50,6 @@ alias fuck='sudo -i $(history -p \!\!)'
 alias unetbootin='export QT_X11_NO_MITSHM=1 unetbootin'
 alias sda='systemd-analyze plot > bootchart.svg | eog bootchart.svg'
 alias mkbackupinfo='mkbackup -Vi list SNP BKP SRC'
+alias vlc='VDPAU_DRIVER=va_gl vlc'
+alias totem='VDPAU_DRIVER=va_gl totem'
+
