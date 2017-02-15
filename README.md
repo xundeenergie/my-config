@@ -4,7 +4,7 @@
 	deb http://debian.xundeenergie.at/xundeenergie testing main
 
 ## Import PUBKEY
-	sudo apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 5900AE6AFC1ECCF2
+	sudo apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys F1FBC60A43B88572
 
 ## update and install
 	# apt update && apt install my-meta
