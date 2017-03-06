@@ -1,4 +1,4 @@
-if [[ $SSH_TTY ]]  && [[ $TERM != screen ]] ; then
+if test $SSH_TTY && test $TERM != screen ; then
         echo Starting or resuming screen session
         echo Press CTRL+C to cancel screen startup
 	echo "User: $USER - $UID"
