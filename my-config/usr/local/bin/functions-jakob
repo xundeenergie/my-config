@@ -119,7 +119,7 @@ function Run () {
     else
         [ $vlevel -ge 2 ] && echo "[XX] $@" |tee -a ${LOGFILE}
         #[ $vlevel -ge 2 ] && echo "[XX] $@" |systemd-cat -t "$0"
-           eval "$@" 2>&1 
+        #   eval "$@" 2>&1 
 
         if [ $vlevel -ge 1 ] ;then
            #eval "$@" 2>&1 |tee -a ${LOGFILE} || { let err++; }
