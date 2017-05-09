@@ -52,4 +52,4 @@ alias sda='systemd-analyze plot > bootchart.svg | eog bootchart.svg'
 alias mkbackupinfo='mkbackup -Vi list SNP BKP SRC'
 alias vlc='VDPAU_DRIVER=va_gl vlc'
 alias totem='VDPAU_DRIVER=va_gl totem'
-
+alias testmail='echo bla|mail -s "TEST $USER $(date)"'
