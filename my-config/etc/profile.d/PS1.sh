@@ -1,6 +1,6 @@
 # /etc/profile.d/PS1.sh: executed by Bourne-compatible login shells.
 
-SYSSUBVOL="$(/usr/bin/grub-mkrelpath /)"
+SYSSUBVOL="$(/usr/bin/syssubvol /)"
 
 # Reset
 Color_Off='\e[0m'       # Text Reset
