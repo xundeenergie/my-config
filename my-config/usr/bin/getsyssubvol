@@ -48,11 +48,15 @@ class MountInfo():
         else:
             raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), mp) 
 
-    def relpath(self,mountpoint):
+    def relpath(self,mountpoint='/'):
         rec,rep,mp = self.__check(mountpoint,'relpath')
         if rec: return mp.replace(rep,'') + mountpoint
         return mp
 
 if __name__ == '__main__':
     MI = MountInfo()
-    print(MI.relpath(sys.argv[1]) )
+    try:
+        p=sys.argv[1]
+    except:
+        p='/'
+    print(MI.relpath(p) )

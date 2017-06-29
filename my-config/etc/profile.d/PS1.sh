@@ -1,6 +1,6 @@
 # /etc/profile.d/PS1.sh: executed by Bourne-compatible login shells.
 
-SYSSUBVOL="$(/usr/bin/getsyssubvol /)"
+SYSSUBVOL="[$(/usr/bin/getsyssubvol /)]"
 
 # Reset
 Color_Off='\e[0m'       # Text Reset
@@ -93,23 +93,23 @@ xterm*|rxvt*|screen*)
 		*) SCREEN="";;
 	esac
     if [ "`id -u`" -eq 0 ]; then
-       PS1="\[$Red\]$SCREEN\u@\h[$SYSSUBVOL] \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Red\]\w: \[\e[m\]\[$BLRed\]# \[\e[m\]\[$Red\]"
+       PS1="\[$BRed\]$SCREEN\u@\h \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Red\]\n${SYSSUBVOL}\w: \[\e[m\]\[$BLRed\]# \[\e[m\]\[$Red\]"
     else
-       PS1="\[$Blue\]$SCREEN\u@\h[$SYSSUBVOL] \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Blue\]\w: \[\e[m\]\[$BLBlue\]\$ \[\e[m\]\[$Blue\]"
+       PS1="\[$BBlue\]$SCREEN\u@\h \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Blue\]\n${SYSSUBVOL}\w: \[\e[m\]\[$BLBlue\]\$ \[\e[m\]\[$Blue\]"
     fi
     RETVAL0="\342\234\223"
     RETVALN0="\342\234\227 "
     ;;
 *)
     if [ "`id -u`" -eq 0 ]; then
-       PS1="\[$BRed\]\u@\h[$SYSSUBVOL] \[\e[m\]\[$Purple\](\A)\[\e[m\]\[$BRed\]\w: # "
+       PS1="\[$BRed\][$SYSSUBVOL]\u@\h \[\e[m\]\[$Purple\](\A)\[\e[m\]\[$BRed\]\n${SYSSUBVOL}\w: # \[\e[m\]\[$Red\]"
     else
-       PS1="\[$BBlue\]\u@\h[$SYSSUBVOL] \[\e[m\]\[$Purple\](\A)\[\e[m\]\[$BBlue\]\w: \$ "
+       PS1="\[$BBlue\][$SYSSUBVOL]\u@\h \[\e[m\]\[$Purple\](\A)\[\e[m\]\[$BBlue\]\n${SYSSUBVOL}\w: \$  \[\e[m\]\[$Blue\]"
     fi
     RETVAL0=":)"
     RETVALN0=":("
     ;;
 esac
-    PS1="(\$? \$(if [[ \$? == 0 ]]; then echo \"\[$Green\]${RETVAL0}\"; else echo \"\[$Red\]${RETVALN0}\"; fi)\[\033[00m\]) ${PS1}\[\e[0m\]"
+PS1="(\$? \$(if [[ \$? == 0 ]]; then echo \"\[$Green\]${RETVAL0}\"; else echo \"\[$Red\]${RETVALN0}\"; fi)\[\033[00m\]) ${PS1}\[\e[0m\]"
 
 #trap 'echo -ne "\e[0m"' DEBUG
