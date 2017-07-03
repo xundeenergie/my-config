@@ -93,9 +93,11 @@ xterm*|rxvt*|screen*)
 		*) SCREEN="";;
 	esac
     if [ "`id -u`" -eq 0 ]; then
-       PS1="\[$BRed\]$SCREEN\u@\h \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Red\]\n${SYSSUBVOL}\w: \[\e[m\]\[$BLRed\]# \[\e[m\]\[$Red\]"
+       PS1="\[$BRed\]$SCREEN\u@\h \[\e[m\]\[$Purple\](\A)\[\e[m\]\n\[$Red\]${SYSSUBVOL}\w: \[\e[m\]\[$BLRed\]# "
     else
-       PS1="\[$BBlue\]$SCREEN\u@\h \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Blue\]\n${SYSSUBVOL}\w: \[\e[m\]\[$BLBlue\]\$ \[\e[m\]\[$Blue\]"
+       #PS1="\[$BBlue\]$SCREEN\u@\h \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Blue\]\n[\$(/usr/bin/getsyssubvol \$PWD)]\w: \[\e[m\]\[$BLBlue\]\$ \[\e[m\]\[$Blue\]"
+       #PS1="\[$BBlue\]$SCREEN\u@\h \[\e[m\]\[$Purple\](\A)\[\e[m\] \[$Blue\]\n\${SYSSUBVOL}\w: \[\e[m\]\[$BLBlue\]\$ \[\e[m\]\[$Blue\]"
+       PS1="\[$BBlue\]$SCREEN\u@\h \[\e[m\]\[$Purple\](\A) \[\e[m\]\n\[$Blue\]\${SYSSUBVOL}\w: \[\e[m\]\[$BLBlue\]\$ "
     fi
     RETVAL0="\342\234\223"
     RETVALN0="\342\234\227 "
@@ -110,6 +112,6 @@ xterm*|rxvt*|screen*)
     RETVALN0=":("
     ;;
 esac
-PS1="(\$? \$(if [[ \$? == 0 ]]; then echo \"\[$Green\]${RETVAL0}\"; else echo \"\[$Red\]${RETVALN0}\"; fi)\[\033[00m\]) ${PS1}\[\e[0m\]"
+PS1="( \$? \$(if [[ \$? == 0 ]]; then echo \"\[$Green\]${RETVAL0}\"; else echo \"\[$Red\]${RETVALN0}\"; fi )\[\e[m\]) ${PS1}\[\e[m\]"
 
 #trap 'echo -ne "\e[0m"' DEBUG
