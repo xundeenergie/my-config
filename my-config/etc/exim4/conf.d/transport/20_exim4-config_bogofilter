@@ -7,6 +7,12 @@ bogo_transport:
    use_bsmtp = true
    headers_add = X-Bogofilterd: true
    transport_filter = /usr/bin/bogofilter -d /var/spool/exim4/bogofilter -p -e -u
+   ## eingefügt jakob
+   # soll Error 421 lost connection verhindern...
+   # Siehe http://forum.directadmin.com/showthread.php?t=16959
+   timeout_defer = true
+   transport_filter_timeout = 5m
+   ## ------
    return_fail_output = true
    group = Debian-exim
    user = Debian-exim
