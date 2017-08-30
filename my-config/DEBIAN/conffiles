@@ -5,6 +5,8 @@
 /etc/profile.d/screen-ssh.sh
 /etc/sysctl.d/01-desktop-optimization.conf
 /etc/systemd/user/mpd.service.d/service.conf
+/etc/systemd/user/mpd.service.d/environ.conf
 /etc/systemd/user/mpDris2.service.d/unit.conf
+/etc/systemd/user/mpDris2.service.d/environ.conf
 /etc/skel/.screenrc
 /etc/skel/.vimrc
