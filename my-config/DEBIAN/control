@@ -1,5 +1,5 @@
 Package: my-config
-Version: 0.11.72
+Version: 0.11.73
 Section: misc
 Priority: extra
 Architecture: all
@@ -7,7 +7,7 @@ Maintainer: Jakobus Schürz <xundeenergie@gmail.com>
 Homepage: http://github.com/xundeenergie/my-config
 Provides: my-config
 Depends: vim, vim-addon-manager, vim-gtk3|vim-gtk, task-german, task-german-desktop, console-setup 
-Recommends: my-services, mpdris2, mpd, openssl
+Recommends: my-services, mpdris2, mpd, openssl, xe-ca-cert
 Suggests: bogofilter
 Description: My configurations 
  Special configurations for this and that around in linux, for jakob schürz
