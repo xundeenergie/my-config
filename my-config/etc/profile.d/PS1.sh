@@ -1,6 +1,10 @@
 # /etc/profile.d/PS1.sh: executed by Bourne-compatible login shells.
 
-SYSSUBVOL="[$(/usr/bin/getsyssubvol /)]"
+if [ "$(/usr/bin/getsyssubvol /)" = "/" ] ; then
+    SYSSUBVOL=""
+else
+    SYSSUBVOL="[$(/usr/bin/getsyssubvol /)]"
+fi
 
 # Reset
 Color_Off='\e[0m'       # Text Reset
@@ -89,7 +93,7 @@ On_IWhite='\e[0;107m'   # White
 case "$TERM" in
 xterm*|rxvt*|screen*)
 	case "$TERM" in
-		screen*) SCREEN="SCREEN ";;
+            screen*) SCREEN="(SCREEN) ";;
 		*) SCREEN="";;
 	esac
     if [ "`id -u`" -eq 0 ]; then
