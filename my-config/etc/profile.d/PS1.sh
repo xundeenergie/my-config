@@ -114,6 +114,6 @@ xterm*|rxvt*|screen*)
     RETVALN0=":("
     ;;
 esac
-PS1="\[\033]0;\u@\h:\w\007\]( \$? \$(if [[ \$? == 0 ]]; then echo \"\[$Green\]${RETVAL0}\"; else echo \"\[$Red\]${RETVALN0}\"; fi )\[\e[m\]) ${PS1}\[\e[m\]"
+PS1="( \$? \$(if [[ \$? == 0 ]]; then echo \"\[$Green\]${RETVAL0}\"; else echo \"\[$Red\]${RETVALN0}\"; fi )\[\e[m\]) ${PS1}\[\e[m\]"
 
 #trap 'echo -ne "\e[0m"' DEBUG
