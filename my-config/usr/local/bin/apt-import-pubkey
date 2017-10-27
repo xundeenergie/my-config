@@ -3,9 +3,9 @@
 if [ $# -gt 1 ]; then
 	for key in $@; do
 		gpg --keyserver pgpkeys.mit.edu --recv-key $key
-		gpg -a --export $key | sudo apt-key add -
+		gpg -a --export $key | su -c "apt-key add -"
 	done
 else
 	gpg --keyserver pgpkeys.mit.edu --recv-key $1
-	gpg -a --export $1 | sudo apt-key add -
+	gpg -a --export $1 | su -c "apt-key add -"
 fi
